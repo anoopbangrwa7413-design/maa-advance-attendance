@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123b63"><link rel="manifest" href="manifest.json">
+<title>Maa Advance Attendance</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="brand">MAA <span>ADVANCE</span></div><div class="sub">DIAGNOSTIC CENTRE JHUNJHUNU</div></header>
+<main>
+<section class="hero"><div><p class="eyebrow">HOSPITAL STAFF MANAGEMENT</p><h1>Attendance Portal</h1><p>Face photo + GPS based attendance demo</p></div><span class="pill">200 m Geofence</span></section>
+<nav><button class="tab active" data-view="attendance">Attendance</button><button class="tab" data-view="staff">Staff</button><button class="tab" data-view="admin">Admin</button></nav>
+<section id="attendance" class="view active">
+ <div class="card">
+  <h2>Staff Attendance</h2>
+  <label>Employee ID</label><input id="attId" placeholder="जैसे MAD001">
+  <div class="camera"><video id="video" autoplay playsinline muted></video><canvas id="canvas" hidden></canvas><div id="cameraHint">Camera शुरू करने के लिए नीचे बटन दबाएँ</div></div>
+  <div class="actions"><button id="startCamera" class="secondary">Camera शुरू करें</button><button id="capture" disabled>Face Photo लें</button></div>
+  <img id="photoPreview" class="preview" alt="Captured attendance photo" hidden>
+  <div class="actions"><button id="getLocation" class="secondary">GPS Location जाँचें</button><span id="gpsStatus" class="status">GPS जाँचा नहीं गया</span></div>
+  <p class="hint">Attendance के लिए कर्मचारी का पंजीकृत ID, कैमरा फोटो और अस्पताल के 200 मीटर दायरे की GPS जाँच आवश्यक है। यह demo फोटो की वास्तविक face matching नहीं करता।</p>
+  <div class="actions"><button id="checkIn">Check In</button><button id="checkOut" class="secondary">Check Out</button></div>
+  <p id="attMessage" class="message" aria-live="polite"></p>
+ </div>
+ <div class="card"><h3>आज की Attendance</h3><div id="todaySummary" class="summary"></div></div>
+</section>
+<section id="staff" class="view">
+ <div class="card"><h2>Staff Registration</h2>
+  <div class="grid">
+   <div><label>Employee ID</label><input id="staffId" placeholder="MAD001"></div>
+   <div><label>पूरा नाम</label><input id="staffName" placeholder="कर्मचारी का नाम"></div>
+   <div><label>विभाग</label><select id="department"><option>Doctor</option><option>Nursing Staff</option><option>Pathologist</option><option>Radiologist</option><option>Technician</option><option>Receptionist</option><option>Medical Worker</option><option>Ward Boy</option><option>Housekeeping</option><option>Other</option></select></div>
+   <div><label>ड्यूटी शिफ्ट</label><select id="shift"><option>Morning</option><option>Evening</option><option>Night</option><option>Rotational</option></select></div>
+   <div><label>मोबाइल नंबर</label><input id="phone" inputmode="tel" placeholder="मोबाइल नंबर"></div>
+   <div><label>Login PIN (demo)</label><input id="pin" type="password" placeholder="4-6 digit PIN"></div>
+  </div><button id="addStaff">कर्मचारी जोड़ें</button><p id="staffMessage" class="message"></p>
+  <h3>Registered Staff</h3><div id="staffList"></div>
+ </div>
+</section>
+<section id="admin" class="view">
+ <div class="card"><h2>Main Admin Dashboard</h2><p class="muted">Hospital Main Admin · Anoopbangrwa7413@gmail.com</p>
+  <div class="stats"><div><b id="staffCount">0</b><span>Total Staff</span></div><div><b id="presentCount">0</b><span>Today's Entries</span></div><div><b>200 m</b><span>GPS Radius</span></div></div>
+  <h3>Hospital GPS Centre</h3><p class="hint">सटीक अस्पताल coordinates यहाँ सेट करें। सुरक्षा कारणों से demo में कोई अनुमानित GPS coordinates पहले से नहीं भरे गए हैं।</p>
+  <div class="grid"><div><label>Latitude</label><input id="lat" placeholder="उदा. 28.xxxxxx"></div><div><label>Longitude</label><input id="lng" placeholder="उदा. 75.xxxxxx"></div></div>
+  <button id="saveLocation" class="secondary">Hospital Location Save करें</button><p id="locationMessage" class="message"></p>
+  <h3>Attendance Records</h3><div class="actions"><button id="exportCsv" class="secondary">CSV Export</button><button id="clearDemo" class="danger">Demo Data Clear</button></div><div id="records"></div>
+ </div>
+</section>
+</main>
+<footer>© Maa Advance Diagnostic Centre Jhunjhunu · Attendance Demo</footer>
+<script src="app.js"></script>
+</body></html>

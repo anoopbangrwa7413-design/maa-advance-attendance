@@ -1,0 +1,15 @@
+CLOUD BUILD GUIDE (Android Studio ki zaroorat nahi)
+
+1. GitHub.com par free account banayein / sign in karein.
+2. New repository banayein, naam: maa-advance-attendance
+3. Is ZIP ko extract karein.
+4. Repository ke andar project ke sab files/folders upload karein. .github folder bhi upload ho.
+5. Commit changes karein. GitHub repo me Actions tab kholen.
+6. "Build Android APK" workflow run hoga (ya Actions > Build Android APK > Run workflow).
+7. Workflow complete hone par run page ke Artifacts section se "Maa-Advance-Attendance-APK" download karein.
+8. Artifact ZIP extract karke app-debug.apk Android phone me install karein.
+
+NOTE:
+- GitHub ke cloud runner par APK compile hogi; local Android Studio/SDK ki zaroorat nahi.
+- GitHub account/repository aur Actions run user ko khud karna hoga. Is chat se aapke GitHub account me login karke workflow run nahi kar sakta.
+- Ye abhi demo app hai: actual face biometric matching/liveness aur multi-device cloud sync isme nahi hain. Data device ke local storage me rehta hai. Production use ke liye backend, secure authentication, face verification, consent/privacy, server-side geofence checks aur audit logs required hain.
